@@ -40,13 +40,14 @@ def fluxCalc(cell, test, massFlux, momFlux, energyFlux):
         cell._mass -= massFlux * area * timestep
         cell._mom -= momFlux * area * timestep
         cell._energy -= energyFlux * area * timestep
-        cell.calcPrims()
 
     else:
         cell._mass += massFlux * area * timestep
         cell._mom += momFlux * area * timestep
         cell._energy += energyFlux * area * timestep
-        cell.calcPrims()
+
+    cell.calcPrims()
+
 
 for i in range(0,n):
     cell = Cell()
