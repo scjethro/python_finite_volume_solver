@@ -75,7 +75,7 @@ class RiemannSolver:
   def __init__(self, gamma):
 
     if gamma <= 1.:
-      print "The adiabatic index needs to be larger than 1!"
+      print("The adiabatic index needs to be larger than 1!")
       exit()
 
     self._gamma = gamma
@@ -261,7 +261,7 @@ class RiemannSolver:
     fs = 0.
 
     if fa * fb > 0.:
-      print "Equal sign function values provided to solve_brent!"
+      print("Equal sign function values provided to solve_brent!")
       exit()
 
     # if |f(a)| < |f(b)| then swap (a,b) end if
@@ -835,39 +835,39 @@ def run_riemannsolver_test(solver, rhoL, uL, PL, rhoR, uR, PR, rhoref, uref,
   rhosol, usol, Psol, flagsol = solver.solve(rhoL, uL, PL, rhoR, uR, PR)
 
   if not relative_difference_smaller_than(rhosol, rhoref, 1.e-4):
-    print "Wrong density solution: {rhosol}, should be {rhoref}".format(
-      rhosol = rhosol, rhoref = rhoref)
-    print "(relative difference: {reldiff})!".format(
-      reldiff = relative_difference(rhosol, rhoref))
+    print("Wrong density solution: {rhosol}, should be {rhoref}".format(
+      rhosol = rhosol, rhoref = rhoref))
+    print("(relative difference: {reldiff})!".format(
+      reldiff = relative_difference(rhosol, rhoref)))
     exit()
 
   if not relative_difference_smaller_than(usol, uref, 1.e-4):
-    print "Wrong velocity solution: {usol}, should be {uref}".format(
-      usol = usol, uref = uref)
-    print "(relative difference: {reldiff})!".format(
-      reldiff = relative_difference(usol, uref))
+    print("Wrong velocity solution: {usol}, should be {uref}".format(
+      usol = usol, uref = uref))
+    print("(relative difference: {reldiff})!".format(
+      reldiff = relative_difference(usol, uref)))
     exit()
 
   if not relative_difference_smaller_than(Psol, Pref, 1.e-4):
-    print "Wrong pressure solution: {Psol}, should be {Pref}".format(
-      Psol = Psol, Pref = Pref)
-    print "(relative difference: {reldiff})!".format(
-      reldiff = relative_difference(Psol, Pref))
+    print("Wrong pressure solution: {Psol}, should be {Pref}".format(
+      Psol = Psol, Pref = Pref))
+    print("(relative difference: {reldiff})!".format(
+      reldiff = relative_difference(Psol, Pref)))
     exit()
 
   if not flagsol == flagref:
-    print "Wrong solution sampled: {flagsol}, should be {flagref}".format(
-      flagsol = flagsol, flagref = flagref)
+    print("Wrong solution sampled: {flagsol}, should be {flagref}".format(
+      flagsol = flagsol, flagref = flagref))
     exit()
 
 ################################################################################
 # @brief Default action when this file is run directly: run some unit tests.
 ################################################################################
 if __name__ == "__main__":
-  print "\nThis script should not be run directly. Instead, import it into " \
+  print("\nThis script should not be run directly. Instead, import it into " \
         "another script and use its functionality there.\n" \
         "Now that we're running anyway, we will quickly run some unit tests " \
-        "to make sure everything still works...\n"
+        "to make sure everything still works...\n")
 
   solver = RiemannSolver(5./3.)
 
@@ -898,5 +898,5 @@ if __name__ == "__main__":
                          1., 1., 1.0005e-6,
                          0., 0., 0., 0)
 
-  print "Unit tests successfully finished. Everything still works!\n" \
-        "Have a nice day!\n"
+  print("Unit tests successfully finished. Everything still works!\n" \
+        "Have a nice day!\n")
